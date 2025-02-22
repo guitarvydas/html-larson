@@ -1155,81 +1155,79 @@ function initialize_component_palette_from_files (project_root,diagram_source_fi
     let  reg = make_component_registry ();             /* line 627 */
     for (let diagram_source of  diagram_source_files) {/* line 628 */
       let all_containers_within_single_file = lnet2internal_from_file ( project_root, diagram_source)/* line 629 */;
-      reg = generate_shell_components ( reg, all_containers_within_single_file)/* line 630 */;
-      for (let container of  all_containers_within_single_file) {/* line 631 */
-        register_component ( reg,mkTemplate ( container [ "name"], container, container_instantiator))/* line 632 *//* line 633 */
-      }                                                /* line 634 */
+      for (let container of  all_containers_within_single_file) {/* line 630 */
+        register_component ( reg,mkTemplate ( container [ "name"], container, container_instantiator))/* line 631 *//* line 632 */
+      }                                                /* line 633 */
     }
-    initialize_stock_components ( reg)                 /* line 635 */
-    return  reg;                                       /* line 636 *//* line 637 *//* line 638 */
+    initialize_stock_components ( reg)                 /* line 634 */
+    return  reg;                                       /* line 635 *//* line 636 *//* line 637 */
 }
 
-function initialize_component_palette_from_string (project_root) {/* line 639 */
-    /*  this version ignores project_root  */          /* line 640 */
-    let  reg = make_component_registry ();             /* line 641 */
-    let all_containers = lnet2internal_from_string (); /* line 642 */
-    reg = generate_shell_components ( reg, all_containers)/* line 643 */;
-    for (let container of  all_containers) {           /* line 644 */
-      register_component ( reg,mkTemplate ( container [ "name"], container, container_instantiator))/* line 645 *//* line 646 */
+function initialize_component_palette_from_string (project_root) {/* line 638 */
+    /*  this version ignores project_root  */          /* line 639 */
+    let  reg = make_component_registry ();             /* line 640 */
+    let all_containers = lnet2internal_from_string (); /* line 641 */
+    for (let container of  all_containers) {           /* line 642 */
+      register_component ( reg,mkTemplate ( container [ "name"], container, container_instantiator))/* line 643 *//* line 644 */
     }
-    initialize_stock_components ( reg)                 /* line 647 */
-    return  reg;                                       /* line 648 *//* line 649 *//* line 650 */
+    initialize_stock_components ( reg)                 /* line 645 */
+    return  reg;                                       /* line 646 *//* line 647 *//* line 648 */
 }
-                                                       /* line 651 */
-function clone_string (s) {                            /* line 652 */
-    return  s                                          /* line 653 *//* line 654 */;/* line 655 */
-}
-
-let  load_errors =  false;                             /* line 656 */
-let  runtime_errors =  false;                          /* line 657 *//* line 658 */
-function load_error (s) {                              /* line 659 *//* line 660 */
-    console.error ( s);                                /* line 661 */
-                                                       /* line 662 */
-    load_errors =  true;                               /* line 663 *//* line 664 *//* line 665 */
+                                                       /* line 649 */
+function clone_string (s) {                            /* line 650 */
+    return  s                                          /* line 651 *//* line 652 */;/* line 653 */
 }
 
-function runtime_error (s) {                           /* line 666 *//* line 667 */
-    console.error ( s);                                /* line 668 */
-    runtime_errors =  true;                            /* line 669 *//* line 670 *//* line 671 */
-}
-                                                       /* line 672 */
-function initialize_from_files (project_root,diagram_names) {/* line 673 */
-    let arg =  null;                                   /* line 674 */
-    let palette = initialize_component_palette_from_files ( project_root, diagram_names)/* line 675 */;
-    return [ palette,[ project_root, diagram_names, arg]];/* line 676 *//* line 677 *//* line 678 */
+let  load_errors =  false;                             /* line 654 */
+let  runtime_errors =  false;                          /* line 655 *//* line 656 */
+function load_error (s) {                              /* line 657 *//* line 658 */
+    console.error ( s);                                /* line 659 */
+                                                       /* line 660 */
+    load_errors =  true;                               /* line 661 *//* line 662 *//* line 663 */
 }
 
-function initialize_from_string (project_root) {       /* line 679 */
-    let arg =  null;                                   /* line 680 */
-    let palette = initialize_component_palette_from_string ( project_root)/* line 681 */;
-    return [ palette,[ project_root, null, arg]];      /* line 682 *//* line 683 *//* line 684 */
+function runtime_error (s) {                           /* line 664 *//* line 665 */
+    console.error ( s);                                /* line 666 */
+    runtime_errors =  true;                            /* line 667 *//* line 668 *//* line 669 */
+}
+                                                       /* line 670 */
+function initialize_from_files (project_root,diagram_names) {/* line 671 */
+    let arg =  null;                                   /* line 672 */
+    let palette = initialize_component_palette_from_files ( project_root, diagram_names)/* line 673 */;
+    return [ palette,[ project_root, diagram_names, arg]];/* line 674 *//* line 675 *//* line 676 */
 }
 
-function start (arg,main_container_name,palette,env) { /* line 685 */
-    let project_root =  env [ 0];                      /* line 686 */
-    let diagram_names =  env [ 1];                     /* line 687 */
-    set_environment ( project_root)                    /* line 688 */
-    /*  get entrypoint container */                    /* line 689 */
-    let  main_container = get_component_instance ( palette, main_container_name, null)/* line 690 */;
-    if ( null ==  main_container) {                    /* line 691 */
-      load_error ( ( "Couldn't find container with page name /".toString ()+  ( main_container_name.toString ()+  ( "/ in files ".toString ()+  (`${ diagram_names}`.toString ()+  " (check tab names, or disable compression?)".toString ()) .toString ()) .toString ()) .toString ()) )/* line 695 *//* line 696 */
+function initialize_from_string (project_root) {       /* line 677 */
+    let arg =  null;                                   /* line 678 */
+    let palette = initialize_component_palette_from_string ( project_root)/* line 679 */;
+    return [ palette,[ project_root, null, arg]];      /* line 680 *//* line 681 *//* line 682 */
+}
+
+function start (arg,main_container_name,palette,env) { /* line 683 */
+    let project_root =  env [ 0];                      /* line 684 */
+    let diagram_names =  env [ 1];                     /* line 685 */
+    set_environment ( project_root)                    /* line 686 */
+    /*  get entrypoint container */                    /* line 687 */
+    let  main_container = get_component_instance ( palette, main_container_name, null)/* line 688 */;
+    if ( null ==  main_container) {                    /* line 689 */
+      load_error ( ( "Couldn't find container with page name /".toString ()+  ( main_container_name.toString ()+  ( "/ in files ".toString ()+  (`${ diagram_names}`.toString ()+  " (check tab names, or disable compression?)".toString ()) .toString ()) .toString ()) .toString ()) )/* line 693 *//* line 694 */
     }
-    if ((!  load_errors)) {                            /* line 697 */
-      let  marg = new_datum_string ( arg)              /* line 698 */;
-      let  mev = make_mevent ( "", marg)               /* line 699 */;
-      inject ( main_container, mev)                    /* line 700 *//* line 701 */
-    }                                                  /* line 702 *//* line 703 */
+    if ((!  load_errors)) {                            /* line 695 */
+      let  marg = new_datum_string ( arg)              /* line 696 */;
+      let  mev = make_mevent ( "", marg)               /* line 697 */;
+      inject ( main_container, mev)                    /* line 698 *//* line 699 */
+    }                                                  /* line 700 *//* line 701 */
 }
-                                                       /* line 704 */
-/*  utility functions  */                              /* line 705 */
-function send_int (eh,port,i,causing_mevent) {         /* line 706 */
-    let datum = new_datum_string (`${ i}`)             /* line 707 */;
-    send ( eh, port, datum, causing_mevent)            /* line 708 *//* line 709 *//* line 710 */
+                                                       /* line 702 */
+/*  utility functions  */                              /* line 703 */
+function send_int (eh,port,i,causing_mevent) {         /* line 704 */
+    let datum = new_datum_string (`${ i}`)             /* line 705 */;
+    send ( eh, port, datum, causing_mevent)            /* line 706 *//* line 707 *//* line 708 */
 }
 
-function send_bang (eh,port,causing_mevent) {          /* line 711 */
-    let datum = new_datum_bang ();                     /* line 712 */
-    send ( eh, port, datum, causing_mevent)            /* line 713 *//* line 714 */
+function send_bang (eh,port,causing_mevent) {          /* line 709 */
+    let datum = new_datum_bang ();                     /* line 710 */
+    send ( eh, port, datum, causing_mevent)            /* line 711 *//* line 712 */
 }
 
 function probeA_instantiate (reg,owner,name,template_data) {/* line 1 */
