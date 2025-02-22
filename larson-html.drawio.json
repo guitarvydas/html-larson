@@ -487,6 +487,11 @@
           "name": "'0d.rt",
           "id": 43
         }
+      },
+      {
+        "dir": 3,
+        "source_port": "",
+        "target_port": ""
       }
     ]
   },
@@ -680,10 +685,6 @@
       {
         "name": "$ ./zd/lu.py \"*** main\"",
         "id": 6
-      },
-      {
-        "name": "?A",
-        "id": 10
       }
     ],
     "connections": [
@@ -694,15 +695,6 @@
         "target": {
           "name": "$ ./zd/lu.py \"*** main\"",
           "id": 6
-        }
-      },
-      {
-        "dir": 0,
-        "source_port": "",
-        "target_port": "",
-        "target": {
-          "name": "?A",
-          "id": 10
         }
       },
       {

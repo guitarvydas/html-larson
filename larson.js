@@ -1614,19 +1614,6 @@ function monitor_handler (eh,msg) {                    /* line 10 */
     }                                                  /* line 18 *//* line 19 */
 }
 
-function turn_on (n,strng) {                           /* line 20 */
-    let  s =  strng;                                   /* line 21 */
-    let  i =  n;                                       /* line 22 */
-    while ( i >  0) {                                  /* line 23 */
-      s =  ( "_".toString ()+  s.toString ())          /* line 24 */;
-      i =  i- 1;                                       /* line 25 *//* line 26 */
-    }
-    console.log ( s);                                  /* line 27 *//* line 28 *//* line 29 */
-}
-
-function turn_off (i,str) {                            /* line 30 *//* line 31 *//* line 32 */
-}
-
 function decode_install (reg) {                        /* line 1 */
     register_component ( reg,mkTemplate ( "Decode", null, decode_instantiator))/* line 2 *//* line 3 *//* line 4 */
 }
@@ -1691,7 +1678,7 @@ function divider_instantiator (reg,owner,name,template_data) {/* line 9 */
     return make_leaf ( name_with_id, owner, info, divider_handler)/* line 12 */;/* line 13 *//* line 14 */
 }
 
-let  DIVIDERCOUNT =  500;                              /* line 15 *//* line 16 */
+let  DIVIDERCOUNT =  5;                                /* line 15 *//* line 16 */
 function first_time (m) {                              /* line 17 */
     return (! is_tick ( m)                             /* line 18 */);/* line 19 *//* line 20 */
 }
@@ -1699,7 +1686,7 @@ function first_time (m) {                              /* line 17 */
 function divider_handler (eh,msg) {                    /* line 21 */
     let info =  eh.instance_data;                      /* line 22 */
     if ( info.counter >=  DIVIDERCOUNT) {              /* line 23 */
-      send ( eh, "", "", msg)                          /* line 24 */
+      send_string ( eh, "", "", msg)                   /* line 24 */
       info.counter =  0;                               /* line 25 */
     }
     else {                                             /* line 26 */

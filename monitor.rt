@@ -17,16 +17,3 @@ defn monitor_handler (eh, msg) {
     }
 }
 
-defn turn_on (n, strng) {
-     deftemp s ⇐ strng
-     deftemp i ⇐ n
-     while i > 0 {
-         s ⇐ #strcons (“_”, s)
-         i ⇐ i - 1
-     }
-    #print_stdout (s)
-}
-
-defn turn_off (i, str) {
-    pass
-}
