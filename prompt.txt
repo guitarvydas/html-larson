@@ -1,0 +1,9 @@
+Write an HTML program that displays a row of 10 LEDs. The LEDs can be simple circles or something more visually interesting.
+
+A LED can be "ON", in which case it is red in colour.
+
+A LED can be "OFF" in which case it is grey (or transparent) in colour.
+
+Include two functions that can be called by Javascript.
+
+`turn_on (n)` and `turn_off (n)`. N is a number between 0 and 9 representing which LED is to be affected.

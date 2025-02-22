@@ -1,0 +1,17 @@
+defn disable_install (reg) {
+    register_component (reg, mkTemplate (“Disable”, ϕ, ↪︎disable_instantiator))
+}
+
+defn disable_handler (eh, msg) {
+    s ≡ msg.datum.v
+    deftemp i ⇐ 0
+    while (i < 10) {
+        send_int (eh, #asstr (i), #asstr (i), msg)
+	i ⇐ i + 1
+    }
+}
+
+defn disable_instantiator (reg, owner, name, template_data) {
+    name_with_id ≡ gensymbol (“Disable”)
+    return make_leaf (name_with_id, owner, ϕ, ↪︎disable_handler)
+}

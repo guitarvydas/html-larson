@@ -1,0 +1,2036 @@
+[
+  {
+    "name": "main",
+    "children": [
+      {
+        "name": "Worker Filenames",
+        "id": 5
+      },
+      {
+        "name": "Compile Diagram",
+        "id": 9
+      },
+      {
+        "name": "Generate",
+        "id": 13
+      },
+      {
+        "name": "'./scanner.drawio",
+        "id": 18
+      },
+      {
+        "name": "Join Javascript",
+        "id": 21
+      },
+      {
+        "name": "$ python3 jsonfmtjs.py",
+        "id": 26
+      }
+    ],
+    "connections": [
+      {
+        "dir": 0,
+        "source_port": "",
+        "target_port": "",
+        "target": {
+          "name": "Worker Filenames",
+          "id": 5
+        }
+      },
+      {
+        "dir": 0,
+        "source_port": "",
+        "target_port": "",
+        "target": {
+          "name": "'./scanner.drawio",
+          "id": 18
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "Worker Filenames",
+          "id": 5
+        },
+        "target": {
+          "name": "Generate",
+          "id": 13
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "fini",
+        "target_port": "fini",
+        "source": {
+          "name": "Worker Filenames",
+          "id": 5
+        },
+        "target": {
+          "name": "Generate",
+          "id": 13
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "'./scanner.drawio",
+          "id": 18
+        },
+        "target": {
+          "name": "Compile Diagram",
+          "id": 9
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "Javascript",
+        "target_port": "",
+        "source": {
+          "name": "Generate",
+          "id": 13
+        },
+        "target": {
+          "name": "Join Javascript",
+          "id": 21
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "Compile Diagram",
+          "id": 9
+        },
+        "target": {
+          "name": "$ python3 jsonfmtjs.py",
+          "id": 26
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "JSON",
+        "source": {
+          "name": "$ python3 jsonfmtjs.py",
+          "id": 26
+        },
+        "target": {
+          "name": "Join Javascript",
+          "id": 21
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "Compile Diagram",
+          "id": 9
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "Generate",
+          "id": 13
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "",
+        "target_port": "Javascript",
+        "source": {
+          "name": "Join Javascript",
+          "id": 21
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "Join Javascript",
+          "id": 21
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "$ python3 jsonfmtjs.py",
+          "id": 26
+        }
+      }
+    ]
+  },
+  {
+    "name": "Worker Filenames",
+    "children": [
+      {
+        "name": "'count.rt",
+        "id": 7
+      },
+      {
+        "name": "'monitor.rt",
+        "id": 10
+      },
+      {
+        "name": "'decode.rt",
+        "id": 13
+      },
+      {
+        "name": "'reverser.rt",
+        "id": 16
+      },
+      {
+        "name": "'divider.rt",
+        "id": 19
+      },
+      {
+        "name": "'empty.rt",
+        "id": 22
+      },
+      {
+        "name": "'DONE",
+        "id": 25
+      },
+      {
+        "name": "1then2",
+        "id": 28
+      },
+      {
+        "name": "'disable.rt",
+        "id": 34
+      },
+      {
+        "name": "'main.rt",
+        "id": 37
+      },
+      {
+        "name": "'stock.rt",
+        "id": 40
+      },
+      {
+        "name": "'0d.rt",
+        "id": 43
+      }
+    ],
+    "connections": [
+      {
+        "dir": 0,
+        "source_port": "",
+        "target_port": "",
+        "target": {
+          "name": "'0d.rt",
+          "id": 43
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "'count.rt",
+          "id": 7
+        },
+        "target": {
+          "name": "'monitor.rt",
+          "id": 10
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "'disable.rt",
+          "id": 34
+        },
+        "target": {
+          "name": "'main.rt",
+          "id": 37
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "'reverser.rt",
+          "id": 16
+        },
+        "target": {
+          "name": "'divider.rt",
+          "id": 19
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "'decode.rt",
+          "id": 13
+        },
+        "target": {
+          "name": "'reverser.rt",
+          "id": 16
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "'monitor.rt",
+          "id": 10
+        },
+        "target": {
+          "name": "'decode.rt",
+          "id": 13
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "1",
+        "source": {
+          "name": "'empty.rt",
+          "id": 22
+        },
+        "target": {
+          "name": "1then2",
+          "id": 28
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "2",
+        "source": {
+          "name": "'empty.rt",
+          "id": 22
+        },
+        "target": {
+          "name": "1then2",
+          "id": 28
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "2",
+        "target_port": "",
+        "source": {
+          "name": "1then2",
+          "id": 28
+        },
+        "target": {
+          "name": "'DONE",
+          "id": 25
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "'divider.rt",
+          "id": 19
+        },
+        "target": {
+          "name": "'disable.rt",
+          "id": 34
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "'main.rt",
+          "id": 37
+        },
+        "target": {
+          "name": "'empty.rt",
+          "id": 22
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "'0d.rt",
+          "id": 43
+        },
+        "target": {
+          "name": "'stock.rt",
+          "id": 40
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "'stock.rt",
+          "id": 40
+        },
+        "target": {
+          "name": "'count.rt",
+          "id": 7
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "",
+        "target_port": "fini",
+        "source": {
+          "name": "'DONE",
+          "id": 25
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "'count.rt",
+          "id": 7
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "'monitor.rt",
+          "id": 10
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "'decode.rt",
+          "id": 13
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "'reverser.rt",
+          "id": 16
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "'divider.rt",
+          "id": 19
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "1",
+        "target_port": "",
+        "source": {
+          "name": "1then2",
+          "id": 28
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "'disable.rt",
+          "id": 34
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "'main.rt",
+          "id": 37
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "'stock.rt",
+          "id": 40
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "'0d.rt",
+          "id": 43
+        }
+      }
+    ]
+  },
+  {
+    "name": "Generate",
+    "children": [
+      {
+        "name": "Front End",
+        "id": 6
+      },
+      {
+        "name": "Back End",
+        "id": 10
+      }
+    ],
+    "connections": [
+      {
+        "dir": 0,
+        "source_port": "",
+        "target_port": "",
+        "target": {
+          "name": "Front End",
+          "id": 6
+        }
+      },
+      {
+        "dir": 0,
+        "source_port": "fini",
+        "target_port": "fini",
+        "target": {
+          "name": "Back End",
+          "id": 10
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "Front End",
+          "id": 6
+        },
+        "target": {
+          "name": "Back End",
+          "id": 10
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "Front End",
+          "id": 6
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "Javascript",
+        "target_port": "Javascript",
+        "source": {
+          "name": "Back End",
+          "id": 10
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "Back End",
+          "id": 10
+        }
+      }
+    ]
+  },
+  {
+    "name": "Compile Worker",
+    "children": [
+      {
+        "name": "Generate",
+        "id": 6
+      }
+    ],
+    "connections": [
+      {
+        "dir": 0,
+        "source_port": "",
+        "target_port": "",
+        "target": {
+          "name": "Generate",
+          "id": 6
+        }
+      },
+      {
+        "dir": 0,
+        "source_port": "fini",
+        "target_port": "fini",
+        "target": {
+          "name": "Generate",
+          "id": 6
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "Javascript",
+        "target_port": "Javascript",
+        "source": {
+          "name": "Generate",
+          "id": 6
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "Generate",
+          "id": 6
+        }
+      }
+    ]
+  },
+  {
+    "name": "Compile Diagram",
+    "children": [
+      {
+        "name": "$ node das2json.js",
+        "id": 5
+      },
+      {
+        "name": "Read Text File",
+        "id": 10
+      }
+    ],
+    "connections": [
+      {
+        "dir": 0,
+        "source_port": "",
+        "target_port": "",
+        "target": {
+          "name": "Read Text File",
+          "id": 10
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "Read Text File",
+          "id": 10
+        },
+        "target": {
+          "name": "$ node das2json.js",
+          "id": 5
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "$ node das2json.js",
+          "id": 5
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "$ node das2json.js",
+          "id": 5
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "Read Text File",
+          "id": 10
+        }
+      }
+    ]
+  },
+  {
+    "name": "Debug Main",
+    "children": [
+      {
+        "name": "$ ./zd/lu.py \"*** main\"",
+        "id": 6
+      },
+      {
+        "name": "?A",
+        "id": 10
+      }
+    ],
+    "connections": [
+      {
+        "dir": 0,
+        "source_port": "",
+        "target_port": "",
+        "target": {
+          "name": "$ ./zd/lu.py \"*** main\"",
+          "id": 6
+        }
+      },
+      {
+        "dir": 0,
+        "source_port": "",
+        "target_port": "",
+        "target": {
+          "name": "?A",
+          "id": 10
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "$ ./zd/lu.py \"*** main\"",
+          "id": 6
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "$ ./zd/lu.py \"*** main\"",
+          "id": 6
+        }
+      },
+      {
+        "dir": 3,
+        "source_port": "",
+        "target_port": ""
+      }
+    ]
+  },
+  {
+    "name": "Join Javascript",
+    "children": [
+      {
+        "name": "1then2",
+        "id": 6
+      }
+    ],
+    "connections": [
+      {
+        "dir": 0,
+        "source_port": "JSON",
+        "target_port": "1",
+        "target": {
+          "name": "1then2",
+          "id": 6
+        }
+      },
+      {
+        "dir": 0,
+        "source_port": "",
+        "target_port": "2",
+        "target": {
+          "name": "1then2",
+          "id": 6
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "2",
+        "target_port": "",
+        "source": {
+          "name": "1then2",
+          "id": 6
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "1",
+        "target_port": "",
+        "source": {
+          "name": "1then2",
+          "id": 6
+        }
+      }
+    ]
+  },
+  {
+    "name": "...",
+    "children": [],
+    "connections": []
+  },
+  {
+    "name": "Front End",
+    "children": [
+      {
+        "name": "Inhale",
+        "id": 5
+      },
+      {
+        "name": "Syntax Check",
+        "id": 9
+      },
+      {
+        "name": "Semantics Check",
+        "id": 13
+      }
+    ],
+    "connections": [
+      {
+        "dir": 0,
+        "source_port": "",
+        "target_port": "",
+        "target": {
+          "name": "Inhale",
+          "id": 5
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "Syntax Check",
+          "id": 9
+        },
+        "target": {
+          "name": "Semantics Check",
+          "id": 13
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "Inhale",
+          "id": 5
+        },
+        "target": {
+          "name": "Syntax Check",
+          "id": 9
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "Semantics Check",
+          "id": 13
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "Semantics Check",
+          "id": 13
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "Syntax Check",
+          "id": 9
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "Inhale",
+          "id": 5
+        }
+      }
+    ]
+  },
+  {
+    "name": "Back End",
+    "children": [
+      {
+        "name": "Generate Javascript",
+        "id": 6
+      },
+      {
+        "name": "Cleanup",
+        "id": 11
+      }
+    ],
+    "connections": [
+      {
+        "dir": 0,
+        "source_port": "",
+        "target_port": "",
+        "target": {
+          "name": "Generate Javascript",
+          "id": 6
+        }
+      },
+      {
+        "dir": 0,
+        "source_port": "fini",
+        "target_port": "fini",
+        "target": {
+          "name": "Generate Javascript",
+          "id": 6
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "Generate Javascript",
+          "id": 6
+        },
+        "target": {
+          "name": "Cleanup",
+          "id": 11
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "Generate Javascript",
+          "id": 6
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "",
+        "target_port": "Javascript",
+        "source": {
+          "name": "Cleanup",
+          "id": 11
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "Cleanup",
+          "id": 11
+        }
+      }
+    ]
+  },
+  {
+    "name": "Generate Javascript",
+    "children": [
+      {
+        "name": "RT to Javascript",
+        "id": 6
+      },
+      {
+        "name": "Exhale Javascript",
+        "id": 10
+      },
+      {
+        "name": "$ python3 rt/jsrelocate.py 55",
+        "id": 14
+      },
+      {
+        "name": "Grep for Errors",
+        "id": 18
+      },
+      {
+        "name": "String Concat *",
+        "id": 22
+      }
+    ],
+    "connections": [
+      {
+        "dir": 0,
+        "source_port": "",
+        "target_port": "",
+        "target": {
+          "name": "RT to Javascript",
+          "id": 6
+        }
+      },
+      {
+        "dir": 0,
+        "source_port": "fini",
+        "target_port": "fini",
+        "target": {
+          "name": "String Concat *",
+          "id": 22
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "Exhale Javascript",
+          "id": 10
+        },
+        "target": {
+          "name": "$ python3 rt/jsrelocate.py 55",
+          "id": 14
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "RT to Javascript",
+          "id": 6
+        },
+        "target": {
+          "name": "Exhale Javascript",
+          "id": 10
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "$ python3 rt/jsrelocate.py 55",
+          "id": 14
+        },
+        "target": {
+          "name": "Grep for Errors",
+          "id": 18
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "Grep for Errors",
+          "id": 18
+        },
+        "target": {
+          "name": "String Concat *",
+          "id": 22
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "RT to Javascript",
+          "id": 6
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "Exhale Javascript",
+          "id": 10
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "$ python3 rt/jsrelocate.py 55",
+          "id": 14
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "Grep for Errors",
+          "id": 18
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "String Concat *",
+          "id": 22
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "String Concat *",
+          "id": 22
+        }
+      }
+    ]
+  },
+  {
+    "name": "Inhale",
+    "children": [
+      {
+        "name": "$ rt/ndsl rt/internalize.ohm rt/internalize.rewrite ",
+        "id": 5
+      },
+      {
+        "name": "Read Text File",
+        "id": 9
+      },
+      {
+        "name": "?B",
+        "id": 13
+      },
+      {
+        "name": "?C",
+        "id": 15
+      }
+    ],
+    "connections": [
+      {
+        "dir": 0,
+        "source_port": "",
+        "target_port": "",
+        "target": {
+          "name": "Read Text File",
+          "id": 9
+        }
+      },
+      {
+        "dir": 0,
+        "source_port": "",
+        "target_port": "",
+        "target": {
+          "name": "?B",
+          "id": 13
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "Read Text File",
+          "id": 9
+        },
+        "target": {
+          "name": "$ rt/ndsl rt/internalize.ohm rt/internalize.rewrite ",
+          "id": 5
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "✗",
+        "target_port": "",
+        "source": {
+          "name": "Read Text File",
+          "id": 9
+        },
+        "target": {
+          "name": "?C",
+          "id": 15
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "$ rt/ndsl rt/internalize.ohm rt/internalize.rewrite ",
+          "id": 5
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "$ rt/ndsl rt/internalize.ohm rt/internalize.rewrite ",
+          "id": 5
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "Read Text File",
+          "id": 9
+        }
+      }
+    ]
+  },
+  {
+    "name": "Syntax Check",
+    "children": [
+      {
+        "name": "$ ./rt/ndsl rt/syntax.ohm rt/syntax.rewrite",
+        "id": 5
+      }
+    ],
+    "connections": [
+      {
+        "dir": 0,
+        "source_port": "",
+        "target_port": "",
+        "target": {
+          "name": "$ ./rt/ndsl rt/syntax.ohm rt/syntax.rewrite",
+          "id": 5
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "$ ./rt/ndsl rt/syntax.ohm rt/syntax.rewrite",
+          "id": 5
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "$ ./rt/ndsl rt/syntax.ohm rt/syntax.rewrite",
+          "id": 5
+        }
+      }
+    ]
+  },
+  {
+    "name": "Semantics Check",
+    "children": [
+      {
+        "name": "$ ./rt/ndsl rt/semantics.ohm rt/semantics.rewrite",
+        "id": 5
+      }
+    ],
+    "connections": [
+      {
+        "dir": 0,
+        "source_port": "",
+        "target_port": "",
+        "target": {
+          "name": "$ ./rt/ndsl rt/semantics.ohm rt/semantics.rewrite",
+          "id": 5
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "$ ./rt/ndsl rt/semantics.ohm rt/semantics.rewrite",
+          "id": 5
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "$ ./rt/ndsl rt/semantics.ohm rt/semantics.rewrite",
+          "id": 5
+        }
+      }
+    ]
+  },
+  {
+    "name": "RT to Javascript",
+    "children": [
+      {
+        "name": "$ ./rt/ndsl rt/emit.ohm rt/emitjs.rewrite",
+        "id": 5
+      }
+    ],
+    "connections": [
+      {
+        "dir": 0,
+        "source_port": "",
+        "target_port": "",
+        "target": {
+          "name": "$ ./rt/ndsl rt/emit.ohm rt/emitjs.rewrite",
+          "id": 5
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "$ ./rt/ndsl rt/emit.ohm rt/emitjs.rewrite",
+          "id": 5
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "$ ./rt/ndsl rt/emit.ohm rt/emitjs.rewrite",
+          "id": 5
+        }
+      }
+    ]
+  },
+  {
+    "name": "Uninternalize",
+    "children": [
+      {
+        "name": "$ node rt/unencode.mjs",
+        "id": 5
+      }
+    ],
+    "connections": [
+      {
+        "dir": 0,
+        "source_port": "",
+        "target_port": "",
+        "target": {
+          "name": "$ node rt/unencode.mjs",
+          "id": 5
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "$ node rt/unencode.mjs",
+          "id": 5
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "$ node rt/unencode.mjs",
+          "id": 5
+        }
+      }
+    ]
+  },
+  {
+    "name": "Decode For Javascript",
+    "children": [
+      {
+        "name": "$ ./rt/ndsl rt/jsdecode.ohm rt/jsdecode.rewrite",
+        "id": 5
+      }
+    ],
+    "connections": [
+      {
+        "dir": 0,
+        "source_port": "",
+        "target_port": "",
+        "target": {
+          "name": "$ ./rt/ndsl rt/jsdecode.ohm rt/jsdecode.rewrite",
+          "id": 5
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "$ ./rt/ndsl rt/jsdecode.ohm rt/jsdecode.rewrite",
+          "id": 5
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "$ ./rt/ndsl rt/jsdecode.ohm rt/jsdecode.rewrite",
+          "id": 5
+        }
+      }
+    ]
+  },
+  {
+    "name": "Javascript Indenter",
+    "children": [
+      {
+        "name": "$ node rt/jsindenter.mjs",
+        "id": 5
+      }
+    ],
+    "connections": [
+      {
+        "dir": 0,
+        "source_port": "",
+        "target_port": "",
+        "target": {
+          "name": "$ node rt/jsindenter.mjs",
+          "id": 5
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "$ node rt/jsindenter.mjs",
+          "id": 5
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "$ node rt/jsindenter.mjs",
+          "id": 5
+        }
+      }
+    ]
+  },
+  {
+    "name": "Exhale Javascript",
+    "children": [
+      {
+        "name": "Decode For Javascript",
+        "id": 5
+      },
+      {
+        "name": "Uninternalize",
+        "id": 9
+      },
+      {
+        "name": "Javascript Indenter",
+        "id": 13
+      }
+    ],
+    "connections": [
+      {
+        "dir": 0,
+        "source_port": "",
+        "target_port": "",
+        "target": {
+          "name": "Decode For Javascript",
+          "id": 5
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "Decode For Javascript",
+          "id": 5
+        },
+        "target": {
+          "name": "Uninternalize",
+          "id": 9
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "Uninternalize",
+          "id": 9
+        },
+        "target": {
+          "name": "Javascript Indenter",
+          "id": 13
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "Decode For Javascript",
+          "id": 5
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "Uninternalize",
+          "id": 9
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "Javascript Indenter",
+          "id": 13
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "Javascript Indenter",
+          "id": 13
+        }
+      }
+    ]
+  },
+  {
+    "name": "String Concat *",
+    "children": [
+      {
+        "name": "switch1*",
+        "id": 6
+      },
+      {
+        "name": "stringconcat",
+        "id": 12
+      },
+      {
+        "name": "latch",
+        "id": 18
+      },
+      {
+        "name": "'",
+        "id": 23
+      },
+      {
+        "name": "seq12",
+        "id": 26
+      }
+    ],
+    "connections": [
+      {
+        "dir": 0,
+        "source_port": "",
+        "target_port": "",
+        "target": {
+          "name": "switch1*",
+          "id": 6
+        }
+      },
+      {
+        "dir": 0,
+        "source_port": "fini",
+        "target_port": "1",
+        "target": {
+          "name": "seq12",
+          "id": 26
+        }
+      },
+      {
+        "dir": 0,
+        "source_port": "fini",
+        "target_port": "2",
+        "target": {
+          "name": "seq12",
+          "id": 26
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "1",
+        "source": {
+          "name": "stringconcat",
+          "id": 12
+        },
+        "target": {
+          "name": "stringconcat",
+          "id": 12
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "1",
+        "target_port": "",
+        "source": {
+          "name": "switch1*",
+          "id": 6
+        },
+        "target": {
+          "name": "'",
+          "id": 23
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "1",
+        "source": {
+          "name": "'",
+          "id": 23
+        },
+        "target": {
+          "name": "stringconcat",
+          "id": 12
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "1",
+        "target_port": "2",
+        "source": {
+          "name": "switch1*",
+          "id": 6
+        },
+        "target": {
+          "name": "stringconcat",
+          "id": 12
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "*",
+        "target_port": "2",
+        "source": {
+          "name": "switch1*",
+          "id": 6
+        },
+        "target": {
+          "name": "stringconcat",
+          "id": 12
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "2",
+        "target_port": "reset",
+        "source": {
+          "name": "seq12",
+          "id": 26
+        },
+        "target": {
+          "name": "switch1*",
+          "id": 6
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "stringconcat",
+          "id": 12
+        },
+        "target": {
+          "name": "latch",
+          "id": 18
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "2",
+        "target_port": "reset",
+        "source": {
+          "name": "seq12",
+          "id": 26
+        },
+        "target": {
+          "name": "stringconcat",
+          "id": 12
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "1",
+        "target_port": "release",
+        "source": {
+          "name": "seq12",
+          "id": 26
+        },
+        "target": {
+          "name": "latch",
+          "id": 18
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "latch",
+          "id": 18
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "latch",
+          "id": 18
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "stringconcat",
+          "id": 12
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "switch1*",
+          "id": 6
+        }
+      }
+    ]
+  },
+  {
+    "name": "seq12",
+    "children": [
+      {
+        "name": "1then2",
+        "id": 6
+      }
+    ],
+    "connections": [
+      {
+        "dir": 0,
+        "source_port": "1",
+        "target_port": "1",
+        "target": {
+          "name": "1then2",
+          "id": 6
+        }
+      },
+      {
+        "dir": 0,
+        "source_port": "2",
+        "target_port": "2",
+        "target": {
+          "name": "1then2",
+          "id": 6
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "2",
+        "target_port": "2",
+        "source": {
+          "name": "1then2",
+          "id": 6
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "1",
+        "target_port": "1",
+        "source": {
+          "name": "1then2",
+          "id": 6
+        }
+      }
+    ]
+  },
+  {
+    "name": "seq123",
+    "children": [
+      {
+        "name": "1then2",
+        "id": 8
+      },
+      {
+        "name": "1then2",
+        "id": 13
+      }
+    ],
+    "connections": [
+      {
+        "dir": 0,
+        "source_port": "1",
+        "target_port": "1",
+        "target": {
+          "name": "1then2",
+          "id": 8
+        }
+      },
+      {
+        "dir": 0,
+        "source_port": "2",
+        "target_port": "2",
+        "target": {
+          "name": "1then2",
+          "id": 8
+        }
+      },
+      {
+        "dir": 0,
+        "source_port": "3",
+        "target_port": "2",
+        "target": {
+          "name": "1then2",
+          "id": 13
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "2",
+        "target_port": "1",
+        "source": {
+          "name": "1then2",
+          "id": 8
+        },
+        "target": {
+          "name": "1then2",
+          "id": 13
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "1",
+        "target_port": "1",
+        "source": {
+          "name": "1then2",
+          "id": 8
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "1",
+        "target_port": "2",
+        "source": {
+          "name": "1then2",
+          "id": 13
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "2",
+        "target_port": "3",
+        "source": {
+          "name": "1then2",
+          "id": 13
+        }
+      }
+    ]
+  },
+  {
+    "name": "Encode",
+    "children": [
+      {
+        "name": "$ node rt/mencode.mjs",
+        "id": 5
+      }
+    ],
+    "connections": [
+      {
+        "dir": 0,
+        "source_port": "",
+        "target_port": "",
+        "target": {
+          "name": "$ node rt/mencode.mjs",
+          "id": 5
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "$ node rt/mencode.mjs",
+          "id": 5
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "$ node rt/mencode.mjs",
+          "id": 5
+        }
+      }
+    ]
+  },
+  {
+    "name": "Grep for Errors",
+    "children": [
+      {
+        "name": "$ python3 rt/errgrep.py",
+        "id": 5
+      }
+    ],
+    "connections": [
+      {
+        "dir": 0,
+        "source_port": "",
+        "target_port": "",
+        "target": {
+          "name": "$ python3 rt/errgrep.py",
+          "id": 5
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "$ python3 rt/errgrep.py",
+          "id": 5
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "$ python3 rt/errgrep.py",
+          "id": 5
+        }
+      }
+    ]
+  },
+  {
+    "name": "?inlineA",
+    "children": [
+      {
+        "name": "?A",
+        "id": 4
+      }
+    ],
+    "connections": [
+      {
+        "dir": 0,
+        "source_port": "",
+        "target_port": "",
+        "target": {
+          "name": "?A",
+          "id": 4
+        }
+      },
+      {
+        "dir": 3,
+        "source_port": "",
+        "target_port": ""
+      }
+    ]
+  },
+  {
+    "name": "?inlineB",
+    "children": [
+      {
+        "name": "?B",
+        "id": 4
+      }
+    ],
+    "connections": [
+      {
+        "dir": 0,
+        "source_port": "",
+        "target_port": "",
+        "target": {
+          "name": "?B",
+          "id": 4
+        }
+      },
+      {
+        "dir": 3,
+        "source_port": "",
+        "target_port": ""
+      }
+    ]
+  },
+  {
+    "name": "?inlineC",
+    "children": [
+      {
+        "name": "?C",
+        "id": 4
+      }
+    ],
+    "connections": [
+      {
+        "dir": 0,
+        "source_port": "",
+        "target_port": "",
+        "target": {
+          "name": "?C",
+          "id": 4
+        }
+      },
+      {
+        "dir": 3,
+        "source_port": "",
+        "target_port": ""
+      }
+    ]
+  },
+  {
+    "name": "Cleanup",
+    "children": [
+      {
+        "name": "$ python3 rt/cleanup.py",
+        "id": 5
+      }
+    ],
+    "connections": [
+      {
+        "dir": 0,
+        "source_port": "",
+        "target_port": "",
+        "target": {
+          "name": "$ python3 rt/cleanup.py",
+          "id": 5
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "$ python3 rt/cleanup.py",
+          "id": 5
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "$ python3 rt/cleanup.py",
+          "id": 5
+        }
+      }
+    ]
+  }
+]

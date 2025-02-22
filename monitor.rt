@@ -1,0 +1,32 @@
+defn monitor_install (reg) {
+    register_component (reg, mkTemplate (“@”, ϕ, ↪︎monitor_instantiator))
+}
+
+defn monitor_instantiator (reg, owner, name, template_data) {      
+    name_with_id ≡ gensymbol (“@”)
+    return make_leaf (name_with_id, owner, ϕ, ↪︎monitor_handler)
+}
+
+defn monitor_handler (eh, msg) {
+     if (msg.port = “reset”) {
+         deftemp i ⇐ #asint (msg.datum.v)
+         turn_off (i, msg.datum.v)
+     } else {
+         deftemp i ⇐ #asint (msg.datum.v)
+	 turn_on (i, msg.datum.v)
+    }
+}
+
+defn turn_on (n, strng) {
+     deftemp s ⇐ strng
+     deftemp i ⇐ n
+     while i > 0 {
+         s ⇐ #strcons (“_”, s)
+         i ⇐ i - 1
+     }
+    #print_stdout (s)
+}
+
+defn turn_off (i, str) {
+    pass
+}

@@ -1,0 +1,18 @@
+defn main () {
+  #live_update ("", "reset")
+  #live_update ("Info", "SCANNER begin")
+  deftemp palette ⇐ ϕ
+  deftemp env ⇐ ϕ
+  [palette, env] ⇐ initialize_from_string (".")
+
+  ⌈ install Worker parts ⌉
+  count_install (palette)
+  monitor_install (palette)
+  decode_install (palette)
+  reverser_install (palette)
+  delay_install (palette)
+  disable_install (palette)
+
+  start ("", "main", palette, env)
+  #live_update ("Info", "SCANNER end")
+}

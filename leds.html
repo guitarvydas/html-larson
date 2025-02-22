@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .led-container {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            background: #2c3e50;
+            border-radius: 10px;
+        }
+        
+        .led {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #7f8c8d;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .led::after {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .led.on {
+            background: #e74c3c;
+            box-shadow: 0 0 20px #e74c3c;
+        }
+        
+        .controls {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        button {
+            padding: 8px 16px;
+            background: #3498db;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        button:hover {
+            background: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="led-container">
+        <div class="led" id="led0"></div>
+        <div class="led" id="led1"></div>
+        <div class="led" id="led2"></div>
+        <div class="led" id="led3"></div>
+        <div class="led" id="led4"></div>
+        <div class="led" id="led5"></div>
+        <div class="led" id="led6"></div>
+        <div class="led" id="led7"></div>
+        <div class="led" id="led8"></div>
+        <div class="led" id="led9"></div>
+    </div>
+    
+    <div class="controls">
+        <button onclick="demo()">Run Demo</button>
+        <button onclick="main()">Run main</button>
+    </div>
+
+    <script>
+      function turn_on(n, s) {
+	  console.log (`turn on ${n}`);
+            if (n >= 0 && n <= 9) {
+                document.getElementById(`led${n}`).classList.add('on');
+            }
+        }
+        
+      function turn_off(n, s) {
+            if (n >= 0 && n <= 9) {
+                document.getElementById(`led${n}`).classList.remove('on');
+            }
+        }
+    </script>
+    <script src="larson.js"></script>
+    <script>
+        // Demo function to showcase the LEDs
+        function demo() {
+            // Turn all LEDs off first
+            for (let i = 0; i < 10; i++) {
+                turn_off(i);
+            }
+            
+            // Create a sequential pattern
+            let i = 0;
+            const interval = setInterval(() => {
+                if (i > 0) turn_off(i - 1, "");
+                turn_on(i);
+                i++;
+                
+                if (i >= 10) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        turn_off(9, "");
+                    }, 500);
+                }
+            }, 500);
+        }
+    </script>
+    <script>
+      const MAX_LOOPS = 100;
+      let nloops = 0;
+      function mainloop() {
+          // ( --) Limits ticks to browser framerate so doesn't hang.
+          send_tick ();
+          nloops += 1;
+          if (nloops < MAX_LOOPS) {
+              window.requestAnimationFrame(mainloop);
+          } else {
+              console.log ('DONE');
+          }
+      }
+      main ();
+      window.requestAnimationFrame(mainloop);
+    </script>
+</body>
+</html>
