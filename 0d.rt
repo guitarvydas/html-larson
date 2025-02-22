@@ -2,6 +2,7 @@
 
 defvar counter ⇐ 0
 defvar ticktime ⇐ 0
+defvar main_container ⇐ ϕ
 
 defvar digits ⇐ [
     “₀”, “₁”, “₂”, “₃”, “₄”, “₅”,
@@ -685,20 +686,22 @@ defn start (arg, main_container_name, palette, env) {
     diagram_names ≡ env [1]
     set_environment (project_root)
     ⌈ get entrypoint container⌉
-    deftemp main_container ⇐ get_component_instance(palette, main_container_name, ϕ)
+    main_container ⇐ get_component_instance(palette, main_container_name, ϕ)
     if ϕ = main_container {
         load_error (#strcons (“Couldn't find container with page name /”,
 	              #strcons (main_container_name,
 		        #strcons (“/ in files ”,
 			  #strcons (#asstr (diagram_names), “ (check tab names, or disable compression?)”)))))
     }
-    if not load_errors {
-        deftemp marg ⇐ new_datum_string (arg)
-        deftemp mev ⇐ make_mevent(“”, marg)
-        inject (main_container, mev)
-	}
 }
 
+defn inject_tick () {
+    if not load_errors {
+        deftemp marg ⇐ new_datum_string (“”)
+        deftemp mev ⇐ make_mevent(“”, marg)
+        inject (main_container, mev)
+    }
+}
 
 ⌈ utility functions ⌉
 defn send_int (eh, port, i, causing_mevent) {

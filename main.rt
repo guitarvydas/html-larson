@@ -10,7 +10,7 @@ defn main () {
   monitor_install (palette)
   decode_install (palette)
   reverser_install (palette)
-  delay_install (palette)
+  divider_install (palette)
   disable_install (palette)
 
   start ("", "main", palette, env)

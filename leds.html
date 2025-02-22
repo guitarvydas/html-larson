@@ -121,7 +121,7 @@
       let nloops = 0;
       function mainloop() {
           // ( --) Limits ticks to browser framerate so doesn't hang.
-          send_tick ();
+          inject_tick ();
           nloops += 1;
           if (nloops < MAX_LOOPS) {
               window.requestAnimationFrame(mainloop);
