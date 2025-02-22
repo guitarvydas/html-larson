@@ -427,12 +427,6 @@
         <mxCell id="0rtr4lDizznOIT2mW9yx-6" style="edgeStyle=orthogonalEdgeStyle;shape=connector;curved=0;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;strokeColor=default;strokeWidth=2;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=classic;" edge="1" parent="hsVwqht0BFm3mfe_jjHe-1" source="zawgCyTwMU_zkikD6fSx-0" target="8FIfPLqvGCcRP64nfuXK-5">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="0rtr4lDizznOIT2mW9yx-7" style="edgeStyle=orthogonalEdgeStyle;shape=connector;curved=0;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;strokeColor=default;strokeWidth=2;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=classic;" edge="1" parent="hsVwqht0BFm3mfe_jjHe-1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="60" y="60" as="sourcePoint" />
-            <mxPoint x="130" y="60" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>

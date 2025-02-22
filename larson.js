@@ -1661,7 +1661,7 @@ function divider_instantiator (reg,owner,name,template_data) {/* line 9 */
     return make_leaf ( name_with_id, owner, info, divider_handler)/* line 12 */;/* line 13 *//* line 14 */
 }
 
-let  DIVIDERCOUNT =  5;                                /* line 15 *//* line 16 */
+let  DIVIDERCOUNT =  50;                               /* line 15 *//* line 16 */
 function first_time (m) {                              /* line 17 */
     return (! is_tick ( m)                             /* line 18 */);/* line 19 *//* line 20 */
 }
