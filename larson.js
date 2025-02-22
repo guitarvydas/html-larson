@@ -116,10 +116,6 @@ const lnet =
   '      {' +
   '        "name": "Disable",' +
   '        "id": 60' +
-  '      },' +
-  '      {' +
-  '        "name": "?A",' +
-  '        "id": 72' +
   '      }' +
   '    ],' +
   '    "connections": [' +
@@ -481,19 +477,6 @@ const lnet =
   '        "target": {' +
   '          "name": "Disable",' +
   '          "id": 60' +
-  '        }' +
-  '      },' +
-  '      {' +
-  '        "dir": 1,' +
-  '        "source_port": "2",' +
-  '        "target_port": "",' +
-  '        "source": {' +
-  '          "name": "1then2",' +
-  '          "id": 55' +
-  '        },' +
-  '        "target": {' +
-  '          "name": "?A",' +
-  '          "id": 72' +
   '        }' +
   '      },' +
   '      {' +

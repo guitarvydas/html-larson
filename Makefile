@@ -2,7 +2,6 @@
 
 generate:
 	# generate version that embed JSON directly in the code
-	node das2json.js <scanner.drawio >scanner.drawio.json
 	python3 choreographer.py
 run:
 	node larson.js
