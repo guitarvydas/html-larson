@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
+        <title>HTML App Larson Scanner</title>
     <style>
         .led-container {
             display: flex;
@@ -72,11 +73,6 @@
         <div class="led" id="led9"></div>
     </div>
     
-    <div class="controls">
-        <button onclick="demo()">Run Demo</button>
-        <button onclick="main()">Run main</button>
-    </div>
-
     <script>
       function turn_on(n, s) {
             if (n >= 0 && n <= 9) {
@@ -91,30 +87,6 @@
         }
     </script>
     <script src="larson.js"></script>
-    <script>
-        // Demo function to showcase the LEDs
-        function demo() {
-            // Turn all LEDs off first
-            for (let i = 0; i < 10; i++) {
-                turn_off(i);
-            }
-            
-            // Create a sequential pattern
-            let i = 0;
-            const interval = setInterval(() => {
-                if (i > 0) turn_off(i - 1, "");
-                turn_on(i);
-                i++;
-                
-                if (i >= 10) {
-                    clearInterval(interval);
-                    setTimeout(() => {
-                        turn_off(9, "");
-                    }, 500);
-                }
-            }, 500);
-        }
-    </script>
     <script>
       const MAX_LOOPS = 1000;
       let nloops = 0;
