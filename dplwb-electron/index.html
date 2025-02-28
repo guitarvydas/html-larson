@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <title>DPLWB Electron App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>DPLWB for HTML Larson Scanner</h1>
+            <div class="status-indicator">
+                <span id="connection-status">Disconnected</span>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="kvbox">
+                <input type="text" class="tagbox" value="Javascript">
+                <textarea id="js" class="textarea" rows="15" readonly></textarea>
+            </div>
+            <div class="kvbox">
+                <input type="text" class="tagbox" value="Python">
+                <textarea id="py" class="textarea" rows="15" readonly></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="kvbox">
+                <input type="text" class="tagbox" value="CommonLisp">
+                <textarea id="cl" class="textarea" rows="5" readonly></textarea>
+            </div>
+            <div class="kvbox">
+                <input type="text" class="tagbox" value="WASM">
+                <textarea id="wasm" class="textarea" rows="5" readonly></textarea>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="kvbox">
+                <input type="text" class="tagbox" value="✗">
+                <textarea id="errors" class="textarea" rows="10" readonly></textarea>
+            </div>
+            <div class="kvbox">
+                <input type="text" class="tagbox" value="Info">
+                <div id="info" class="textarea info-area"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+</html>
