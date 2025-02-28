@@ -36,6 +36,9 @@ function updateConnectionStatus(isConnected) {
 
 // Handle WebSocket messages from main process
 window.api.onWSMessage((messageStr) => {
+    // Update connection status to connected when we receive a message
+    updateConnectionStatus(true);
+    
     try {
         const data = JSON.parse(messageStr);
         const dataArray = Array.isArray(data) ? data : [data];
@@ -87,6 +90,19 @@ window.api.onWSError((error) => {
     const errorMessage = `WebSocket error: ${error}\n`;
     buffers.set('✗', buffers.get('✗') + errorMessage);
     updateTextArea(document.getElementById('errors'), buffers.get('✗'));
+});
+
+// Listen for connection status updates from main process
+window.api.onWSConnectionStatus((isConnected) => {
+    updateConnectionStatus(isConnected);
+    
+    // Update info area
+    const statusMessage = isConnected ? 
+        '-- connected --\n' : 
+        '-- disconnected --\n';
+    
+    buffers.set('Info', buffers.get('Info') + statusMessage);
+    updateTextArea(document.getElementById('info'), buffers.get('Info'));
 });
 
 // Initial connection status

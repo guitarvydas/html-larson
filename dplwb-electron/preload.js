@@ -9,6 +9,11 @@ contextBridge.exposeInMainWorld(
       ipcRenderer.on('ws-message', (event, message) => callback(message));
     },
     
+    // Receive WebSocket connection status updates
+    onWSConnectionStatus: (callback) => {
+      ipcRenderer.on('ws-connection-status', (event, isConnected) => callback(isConnected));
+    },
+    
     // Receive WebSocket errors from main process
     onWSError: (callback) => {
       ipcRenderer.on('ws-error', (event, error) => callback(error));

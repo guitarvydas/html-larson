@@ -64,6 +64,11 @@ function setupWebSocketServer() {
     wss.on('connection', (ws) => {
       console.log('WebSocket client connected');
       
+      // Notify renderer process about the connection
+      if (mainWindow && !mainWindow.isDestroyed()) {
+        mainWindow.webContents.send('ws-connection-status', true);
+      }
+      
       // Forward messages from clients to the renderer process
       ws.on('message', (message) => {
         if (mainWindow && !mainWindow.isDestroyed()) {
@@ -79,6 +84,9 @@ function setupWebSocketServer() {
       // Handle client disconnection
       ws.on('close', () => {
         console.log('WebSocket client disconnected');
+        if (mainWindow && !mainWindow.isDestroyed()) {
+          mainWindow.webContents.send('ws-connection-status', false);
+        }
       });
     });
     
