@@ -80,6 +80,12 @@ body {
     gap: 20px;
 }
 
+/* Make each kvbox exactly 50% width in the bottom row */
+.row:nth-last-child(2) .kvbox {
+    flex: 0 0 calc(50% - 10px); /* Exactly 50% width minus half the gap */
+    width: calc(50% - 10px);
+}
+
 .tagbox {
     margin-bottom: 5px;
     padding: 8px;

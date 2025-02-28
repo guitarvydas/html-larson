@@ -25,6 +25,9 @@ function createWindow() {
 
   // Load the index.html file
   mainWindow.loadFile('index.html');
+  
+  // Open DevTools for debugging
+  // mainWindow.webContents.openDevTools();
 
   // Window closed event
   mainWindow.on('closed', () => {
@@ -123,22 +126,55 @@ function setupWebSocketServer() {
   }
 }
 
-// Set up file watcher
+// Set up file watcher with improved path handling
 function setupFileWatcher() {
   try {
-    console.log(`Setting up file watcher for ${FILE_TO_WATCH}...`);
+    // Resolve the absolute path to the file
+    const absolutePath = path.resolve(__dirname, FILE_TO_WATCH);
+    console.log(`Setting up file watcher for ${absolutePath}...`);
     
-    const watcher = chokidar.watch(FILE_TO_WATCH, {
+    // Log file existence before watching
+    if (fs.existsSync(absolutePath)) {
+      console.log(`File exists at ${absolutePath}`);
+      if (mainWindow && !mainWindow.isDestroyed()) {
+        mainWindow.webContents.send('ws-info', `Watching file: ${absolutePath}`);
+      }
+    } else {
+      console.log(`Warning: File ${absolutePath} does not exist yet`);
+      if (mainWindow && !mainWindow.isDestroyed()) {
+        mainWindow.webContents.send('ws-info', `Waiting for file to be created: ${absolutePath}`);
+      }
+    }
+    
+    // Update display
+    if (mainWindow && !mainWindow.isDestroyed()) {
+      mainWindow.webContents.send('update-watched-file', absolutePath);
+    }
+    
+    // Set up the watcher with improved options
+    const watcher = chokidar.watch(absolutePath, {
       persistent: true,
-      ignoreInitial: true,
+      ignoreInitial: false,  // Check the file on startup
       awaitWriteFinish: {
-        stabilityThreshold: 300,
+        stabilityThreshold: 2000,
         pollInterval: 100
+      },
+      alwaysStat: true       // Always provide stats with change events
+    });
+    
+    watcher.on('add', (path) => {
+      console.log(`File ${path} has been added`);
+      if (mainWindow && !mainWindow.isDestroyed()) {
+        mainWindow.webContents.send('file-added', path);
+        // Run rebuild on initial add
+        runRebuildScript();
       }
     });
     
-    watcher.on('change', (path) => {
+    watcher.on('change', (path, stats) => {
       console.log(`File ${path} has been changed`);
+      console.log(`Last modified time: ${stats ? stats.mtime : 'unknown'}`);
+      
       if (mainWindow && !mainWindow.isDestroyed()) {
         mainWindow.webContents.send('file-changed', path);
       }
@@ -150,6 +186,14 @@ function setupFileWatcher() {
       console.error(`Watcher error: ${error}`);
       if (mainWindow && !mainWindow.isDestroyed()) {
         mainWindow.webContents.send('ws-error', `Watcher error: ${error}`);
+      }
+    });
+    
+    // Log ready state
+    watcher.on('ready', () => {
+      console.log('Initial scan complete. Ready for changes');
+      if (mainWindow && !mainWindow.isDestroyed()) {
+        mainWindow.webContents.send('ws-info', 'File watcher is ready');
       }
     });
     

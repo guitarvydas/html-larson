@@ -3,6 +3,7 @@ const buffers = new Map();
 const connectionStatus = document.getElementById('connection-status');
 const rebuildButton = document.getElementById('rebuild-btn');
 const fileStatus = document.getElementById('file-status');
+const filePath = document.getElementById('file-path');
 
 // Initialize buffers for all tags
 document.querySelectorAll('.tagbox').forEach(tagbox => {
@@ -44,6 +45,14 @@ function addToLog(message) {
     const currentContent = buffers.get('✗') || '';
     buffers.set('✗', currentContent + logMessage);
     updateTextArea('✗', buffers.get('✗'));
+}
+
+// Add a message to the info section
+function addToInfo(message) {
+    const infoDiv = `<div>${message}</div>`;
+    const currentInfo = buffers.get('Info') || '';
+    buffers.set('Info', currentInfo + infoDiv);
+    updateTextArea('Info', buffers.get('Info'));
 }
 
 // Update connection status display
@@ -109,12 +118,16 @@ window.api.onConnectionStatus((isConnected) => {
     
     // Update info area
     const statusMessage = isConnected ? 
-        '<div>-- connected --</div>\n' : 
-        '<div>-- disconnected --</div>\n';
+        '-- connected --' : 
+        '-- disconnected --';
     
-    const currentInfo = buffers.get('Info') || '';
-    buffers.set('Info', currentInfo + statusMessage);
-    updateTextArea('Info', buffers.get('Info'));
+    addToInfo(statusMessage);
+});
+
+// Event listener for info messages
+window.api.onInfo((info) => {
+    addToInfo(info);
+    addToLog(`Info: ${info}`);
 });
 
 // Event listener for errors
@@ -122,9 +135,30 @@ window.api.onError((error) => {
     addToLog(`Error: ${error}`);
 });
 
+// Event listener for watched file updates
+window.api.onWatchedFileUpdate((path) => {
+    filePath.textContent = path;
+    addToLog(`Now watching file: ${path}`);
+});
+
+// Event listener for file added
+window.api.onFileAdded((path) => {
+    addToLog(`File added: ${path}`);
+    addToInfo(`File detected: ${path}`);
+    
+    // Flash the file status
+    fileStatus.textContent = '(detected)';
+    fileStatus.classList.add('changed');
+    setTimeout(() => {
+        fileStatus.textContent = '';
+        fileStatus.classList.remove('changed');
+    }, 3000);
+});
+
 // Event listener for file changes
 window.api.onFileChanged((path) => {
     addToLog(`File changed: ${path}`);
+    addToInfo(`File changed: ${path}`);
     
     // Flash the file status
     fileStatus.textContent = '(modified)';
@@ -138,6 +172,7 @@ window.api.onFileChanged((path) => {
 // Event listeners for rebuild script events
 window.api.onRebuildStarted(() => {
     addToLog('Rebuild script started');
+    addToInfo('Running rebuild.bash...');
     rebuildButton.disabled = true;
     rebuildButton.textContent = 'Running...';
 });
@@ -154,33 +189,21 @@ window.api.onRebuildCompleted((stdout) => {
     } catch (error) {
         addToLog(`Failed to parse rebuild output: ${error.message}`);
         // Add the raw output to the Info area
-        const infoMessage = `<div>Rebuild output (not JSON):</div><pre>${stdout}</pre>`;
-        const currentInfo = buffers.get('Info') || '';
-        buffers.set('Info', currentInfo + infoMessage);
-        updateTextArea('Info', buffers.get('Info'));
+        addToInfo(`Rebuild output (not JSON):`);
+        addToInfo(`<pre>${stdout}</pre>`);
     }
 });
 
 window.api.onRebuildError((error) => {
     addToLog(`Rebuild error: ${error}`);
+    addToInfo(`<span class="ignored-tag">Rebuild error: ${error}</span>`);
     rebuildButton.disabled = false;
     rebuildButton.textContent = 'Run Rebuild';
-    
-    // Add the error to the error section
-    const errorMessage = `Rebuild script error: ${error}\n`;
-    const currentContent = buffers.get('✗') || '';
-    buffers.set('✗', currentContent + errorMessage);
-    updateTextArea('✗', buffers.get('✗'));
 });
 
 window.api.onRebuildStderr((stderr) => {
     addToLog(`Rebuild stderr: ${stderr}`);
-    
-    // Add the error to the error section
-    const errorMessage = `Rebuild script output (stderr): ${stderr}\n`;
-    const currentContent = buffers.get('✗') || '';
-    buffers.set('✗', currentContent + errorMessage);
-    updateTextArea('✗', buffers.get('✗'));
+    addToInfo(`<span class="ignored-tag">Rebuild stderr: ${stderr}</span>`);
 });
 
 // Event listener for rebuild button
@@ -192,9 +215,7 @@ rebuildButton.addEventListener('click', () => {
 updateConnectionStatus(false);
 
 // Initial status messages
-const initialStatus = '<div>-- waiting for connection --</div>\n';
-buffers.set('Info', initialStatus);
-updateTextArea('Info', buffers.get('Info'));
+addToInfo('-- waiting for connection --');
 
 // Initial log
 addToLog('Application started');

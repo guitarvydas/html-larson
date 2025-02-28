@@ -19,9 +19,24 @@ contextBridge.exposeInMainWorld(
       ipcRenderer.on('ws-error', (event, error) => callback(error));
     },
     
+    // Receive WebSocket info messages
+    onInfo: (callback) => {
+      ipcRenderer.on('ws-info', (event, info) => callback(info));
+    },
+    
     // Receive file change notifications
     onFileChanged: (callback) => {
       ipcRenderer.on('file-changed', (event, path) => callback(path));
+    },
+    
+    // Receive file added notifications
+    onFileAdded: (callback) => {
+      ipcRenderer.on('file-added', (event, path) => callback(path));
+    },
+    
+    // Receive watched file path updates
+    onWatchedFileUpdate: (callback) => {
+      ipcRenderer.on('update-watched-file', (event, path) => callback(path));
     },
     
     // Receive rebuild script status updates
