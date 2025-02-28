@@ -3,47 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <title>DPLWB Electron App</title>
+    <title>Larson Scanner Monitor</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>DPLWB for HTML Larson Scanner</h1>
-            <div class="status-indicator">
-                <span id="connection-status">Disconnected</span>
+            <h1>Larson Scanner Monitor</h1>
+            <div class="controls">
+                <div class="status-indicator">
+                    <span id="connection-status">Disconnected</span>
+                </div>
+                <button id="rebuild-btn">Run Rebuild</button>
             </div>
         </div>
         
         <div class="row">
             <div class="kvbox">
                 <input type="text" class="tagbox" value="Javascript">
-                <textarea id="js" class="textarea" rows="15" readonly></textarea>
+                <textarea id="Javascript" class="textarea" rows="15" readonly></textarea>
             </div>
             <div class="kvbox">
                 <input type="text" class="tagbox" value="Python">
-                <textarea id="py" class="textarea" rows="15" readonly></textarea>
+                <textarea id="Python" class="textarea" rows="15" readonly></textarea>
             </div>
         </div>
         <div class="row">
             <div class="kvbox">
                 <input type="text" class="tagbox" value="CommonLisp">
-                <textarea id="cl" class="textarea" rows="5" readonly></textarea>
+                <textarea id="CommonLisp" class="textarea" rows="5" readonly></textarea>
             </div>
             <div class="kvbox">
                 <input type="text" class="tagbox" value="WASM">
-                <textarea id="wasm" class="textarea" rows="5" readonly></textarea>
+                <textarea id="WASM" class="textarea" rows="5" readonly></textarea>
             </div>
         </div>
 
         <div class="row">
             <div class="kvbox">
                 <input type="text" class="tagbox" value="✗">
-                <textarea id="errors" class="textarea" rows="10" readonly></textarea>
+                <textarea id="✗" class="textarea" rows="10" readonly></textarea>
             </div>
             <div class="kvbox">
                 <input type="text" class="tagbox" value="Info">
-                <div id="info" class="textarea info-area"></div>
+                <div id="Info" class="textarea info-area"></div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div class="file-status">
+                Watching: <span id="file-path">larson-html.drawio</span>
+                <span id="file-status"></span>
             </div>
         </div>
     </div>
