@@ -28,17 +28,24 @@ function updateTextArea(id, content) {
 
 // Reset all textareas and buffers
 function resetAll() {
+    console.log('Reset command received - clearing all displays');
+    
+    // Clear all buffers and update all text areas
     document.querySelectorAll('.tagbox').forEach(tagbox => {
         const id = tagbox.value;
         buffers.set(id, '');
         updateTextArea(id, '');
     });
     
-    // Add a message to the log without adding to buffer to avoid circular reference
-    console.log('All displays cleared (reset command received)');
-    
     // Add initial status message after reset
-    addToInfo('-- displays reset --');
+    const infoDiv = `<div>-- displays reset --</div>`;
+    buffers.set('Info', infoDiv);
+    updateTextArea('Info', infoDiv);
+    
+    const timestamp = new Date().toISOString().replace('T', ' ').substring(0, 19);
+    const logMessage = `[${timestamp}] Reset command received - all displays cleared\n`;
+    buffers.set('✗', logMessage);
+    updateTextArea('✗', logMessage);
 }
 
 // Add a message to the debug log
@@ -79,9 +86,16 @@ function processMessage(data) {
         return;
     }
     
-    // Check for reset command
+    // Check for reset command - multiple possible formats
     for (const item of data) {
+        // Check for {"": "reset"} format
         if (item && item[""] === "reset") {
+            resetAll();
+            return;
+        }
+        
+        // Also check for {"","reset"} format
+        if (item && "" in item && item[""] === "reset") {
             resetAll();
             return;
         }
@@ -91,7 +105,7 @@ function processMessage(data) {
     for (const item of data) {
         for (const [key, value] of Object.entries(item)) {
             // Skip the reset command which was handled above
-            if (key === '' && value === 'reset') continue;
+            if (key === '' && (value === 'reset' || value === "reset")) continue;
             
             const element = document.getElementById(key);
             if (element) {
