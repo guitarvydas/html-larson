@@ -33,7 +33,12 @@ function resetAll() {
         buffers.set(id, '');
         updateTextArea(id, '');
     });
-    addToLog('All displays cleared (reset command received)');
+    
+    // Add a message to the log without adding to buffer to avoid circular reference
+    console.log('All displays cleared (reset command received)');
+    
+    // Add initial status message after reset
+    addToInfo('-- displays reset --');
 }
 
 // Add a message to the debug log

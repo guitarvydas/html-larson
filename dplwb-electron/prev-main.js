@@ -12,12 +12,10 @@ const WS_PORT = 8965;
 const FILE_TO_WATCH = '../larson-html.drawio';
 
 function createWindow() {
-  // Create the browser window with larger size
+  // Create the browser window
   mainWindow = new BrowserWindow({
-    width: 1280,
-    height: 800,
-    minWidth: 1024,
-    minHeight: 700,
+    width: 1024,
+    height: 768,
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true,
@@ -27,6 +25,9 @@ function createWindow() {
 
   // Load the index.html file
   mainWindow.loadFile('index.html');
+  
+  // Open DevTools for debugging
+  // mainWindow.webContents.openDevTools();
 
   // Window closed event
   mainWindow.on('closed', () => {
@@ -155,7 +156,7 @@ function setupFileWatcher() {
       persistent: true,
       ignoreInitial: false,  // Check the file on startup
       awaitWriteFinish: {
-        stabilityThreshold: 500,  // 1/2 second
+        stabilityThreshold: 2000,
         pollInterval: 100
       },
       alwaysStat: true       // Always provide stats with change events
