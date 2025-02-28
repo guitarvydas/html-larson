@@ -1,66 +1,17 @@
-const { app, BrowserWindow, ipcMain } = require('electron');
-const path = require('path');
-const WebSocket = require('ws');
-
-// Keep a global reference of the window object to prevent garbage collection
-let mainWindow;
-
-// WebSocket server for communication
-let wss = null;
-const WS_PORT = 8966;
-
-function createWindow() {
-  // Create the browser window
-  mainWindow = new BrowserWindow({
-    width: 1024,
-    height: 768,
-    webPreferences: {
-      nodeIntegration: false,
-      contextIsolation: true,
-      preload: path.join(__dirname, 'preload.js')
-    }
-  });
-
-  // Load the index.html file
-  mainWindow.loadFile('index.html');
-
-  // Open DevTools in development mode
-  if (process.env.NODE_ENV === 'development') {
-    mainWindow.webContents.openDevTools();
-  }
-
-  // Emitted when the window is closed
-  mainWindow.on('closed', () => {
-    mainWindow = null;
-  });
-}
-
-// Create window when app is ready
-app.whenReady().then(() => {
-  createWindow();
-  setupWebSocketServer();
-
-  app.on('activate', () => {
-    // On macOS, recreate a window when dock icon is clicked and no windows are open
-    if (BrowserWindow.getAllWindows().length === 0) createWindow();
-  });
-});
-
-// Quit when all windows are closed, except on macOS
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
-    if (wss) {
-      wss.close();
-    }
-    app.quit();
-  }
-});
-
-// Set up WebSocket server
 function setupWebSocketServer() {
   try {
-    wss = new WebSocket.Server({ port: WS_PORT });
+    console.log(`Attempting to start WebSocket server on port ${WS_PORT}...`);
     
+    // Create the WebSocket server with explicit host configuration
+    // Note: We're binding only to localhost interfaces
+    wss = new WebSocket.Server({ 
+      host: '127.0.0.1',  // Only listen on localhost IPv4
+      port: WS_PORT 
+    });
+    
+    console.log(`WebSocket server started successfully on port ${WS_PORT}`);
+    
+    // Connection handler and other event handlers...
     wss.on('connection', (ws) => {
       console.log('WebSocket client connected');
       
@@ -71,6 +22,8 @@ function setupWebSocketServer() {
       
       // Forward messages from clients to the renderer process
       ws.on('message', (message) => {
+        console.log(`Received WebSocket message of length: ${message.length}`);
+        
         if (mainWindow && !mainWindow.isDestroyed()) {
           mainWindow.webContents.send('ws-message', message.toString());
         }
@@ -78,7 +31,10 @@ function setupWebSocketServer() {
       
       // Handle WebSocket errors
       ws.on('error', (error) => {
-        console.error('WebSocket error:', error);
+        console.error('WebSocket connection error:', error);
+        if (mainWindow && !mainWindow.isDestroyed()) {
+          mainWindow.webContents.send('ws-error', error.message);
+        }
       });
       
       // Handle client disconnection
@@ -97,20 +53,7 @@ function setupWebSocketServer() {
         mainWindow.webContents.send('ws-error', error.message);
       }
     });
-    
-    console.log(`WebSocket server started on port ${WS_PORT}`);
   } catch (error) {
     console.error('Failed to start WebSocket server:', error);
   }
 }
-
-// Handle IPC messages from renderer
-ipcMain.on('send-ws-message', (event, message) => {
-  if (wss) {
-    wss.clients.forEach((client) => {
-      if (client.readyState === WebSocket.OPEN) {
-        client.send(message);
-      }
-    });
-  }
-});
