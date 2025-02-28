@@ -118,6 +118,12 @@ body {
     resize: vertical;
 }
 
+/* Make error text red */
+#✗ {
+    color: #dc3545;
+    font-weight: normal;
+}
+
 .info-area {
     height: 160px;
     overflow-y: auto;
@@ -152,6 +158,20 @@ body {
     color: #28a745;
     font-weight: bold;
     animation: pulse 1.5s infinite;
+}
+
+/* Ensure text areas are of sufficient height */
+.row:first-of-type .textarea {
+    min-height: 200px;
+}
+
+.row:nth-of-type(2) .textarea {
+    min-height: 150px;
+}
+
+.row:nth-last-child(2) .textarea, 
+.row:nth-last-child(2) .info-area {
+    min-height: 180px;
 }
 
 @keyframes pulse {
