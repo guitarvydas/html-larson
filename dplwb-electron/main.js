@@ -7,7 +7,7 @@ let mainWindow;
 
 // WebSocket server for communication
 let wss = null;
-const WS_PORT = 8965;
+const WS_PORT = 8966;
 
 function createWindow() {
   // Create the browser window
