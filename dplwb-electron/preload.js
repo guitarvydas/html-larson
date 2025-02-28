@@ -1,27 +1,9 @@
-const { contextBridge, ipcRenderer } = require('electron');
+const { contextBridge } = require('electron');
 
-// Expose protected methods that allow the renderer process to use
-// the ipcRenderer without exposing the entire object
+// Expose a minimal API to the renderer process
 contextBridge.exposeInMainWorld(
   'api', {
-    // Receive WebSocket messages from main process
-    onWSMessage: (callback) => {
-      ipcRenderer.on('ws-message', (event, message) => callback(message));
-    },
-    
-    // Receive WebSocket connection status updates
-    onWSConnectionStatus: (callback) => {
-      ipcRenderer.on('ws-connection-status', (event, isConnected) => callback(isConnected));
-    },
-    
-    // Receive WebSocket errors from main process
-    onWSError: (callback) => {
-      ipcRenderer.on('ws-error', (event, error) => callback(error));
-    },
-    
-    // Send messages to WebSocket server via main process
-    sendWSMessage: (message) => {
-      ipcRenderer.send('send-ws-message', message);
-    }
+    // Add minimal functionality here
+    getVersion: () => process.versions.electron
   }
 );
