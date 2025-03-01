@@ -4,10 +4,6 @@ Scanner.choreographers.json uses several worker Parts written in Javascript in t
 
 The whole system runs on top of a kernel, written in Javascript, consisting of kernel.js and stock.js.
 
-Summarize the Larson scanner app in this context.
-
----
-
 # Larson Scanner App - Component Structure Summary
 
 The Larson scanner app creates a classic "Knight Rider" style back-and-forth light pattern using a component-based message-passing architecture. Here's how all the pieces fit together:

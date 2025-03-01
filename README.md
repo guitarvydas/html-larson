@@ -1,16 +1,19 @@
 # Larson Scanner Project
 
+![layer 1](./doc/scanner-layer1.png)
+
+![layer 2](./doc/scanner-layer2.png)
+
 This project implements a Larson Scanner in a browser, using source code written as diagrams in draw.io.
 
-The Larson scanner app creates a classic "Knight Rider" style back-and-forth light pattern using a component-based message-passing architecture. See doc/START-HERE.md for implementation details.
+The Larson scanner app creates a classic "Knight Rider" style back-and-forth light pattern using a component-based message-passing architecture. See doc/larson.md for how all the pieces fit together:
 
 The main thrust of this example is to show how to generated a browser app using diagrams as code. To accomplish, the code needs to rely on a coroutining kernel written in Javascript.
 
-All of the code, except for the HTML file `leds.html` is generated from diagrams or from textual code written in a Very High Level language `.rt`. The code generator is include in this project.
+All of the code, except for the (minimal) HTML file `leds.html` is generated from diagrams and/or from textual code written in a Very High Level language `.rt`. The code generator is include in this project.
 
 # Documentation
 see doc/START-HERE.md
-
 
 # Browser App
 
