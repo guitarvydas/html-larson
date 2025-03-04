@@ -10,7 +10,7 @@ The Larson scanner app creates a classic "Knight Rider" style back-and-forth lig
 
 The main thrust of this example is to show how to generate a browser app using diagrams as code. To accomplish this, the code needs to rely on a coroutining kernel written in Javascript. (supplied)
 
-All of the code, except for the (minimal) HTML file `leds.html` is generated from diagrams and/or from textual code written in a Very High Level language (working name `.rt` for "recursive text"). The code generator is include in this project.
+All of the code, except for the (minimal) HTML file `leds.html` is generated from diagrams and/or from textual code written in a Very High Level language (working name `.rt` for "recursive text"). The code generator is included in this project.
 
 # Documentation
 see doc/START-HERE.md
@@ -24,9 +24,10 @@ RT (Recursive text) is a VHLL that compiles to several target languages at once 
 
 
 # usage
-- `source dw/bin/activate` to switch to a Python environment that includes websockets
 - open code-generator.drawio (in draw.io)
-- open a new terminal window, `source dw/bin/activate`, run `make`
+- open a new terminal window, 
+  - `source dw/bin/activate` (set up Python environment that includes websockets)
+  - `make`
 - open a browser and open file dplwb.html (it connects to the websocket generated in the terminal window)
 - click on `code-generator.drawio` diagram (1st window), hit SAVE (command-S or control-S (Mac vs. Linux))
 - watch compiler generate messages in the browser window

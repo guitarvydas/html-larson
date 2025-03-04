@@ -24,3 +24,4 @@ pyenv:
 	python3 -m venv ./dw
 	@echo 'do this from the command line: source dw/bin/activate'
 	@echo 'do this from the command line: pip3 install websockets'
+	@echo 'to deactive the environment: deactivate'
