@@ -1,6 +1,8 @@
-# Summary of scanner.workers.js
+# Summary of scanner Leaf (Worker) Parts:
 
-This file defines additional components for the component-based messaging system (kernel.js). It includes several specialized worker components and a main function to initialize and start the system.
+The Leaf Parts are written in the `.rt` VHLL. The code generator converts this to Javascript code.
+
+[The generated code becomes part of the final output that is copied into `larson.js`].
 
 ## Worker Components
 
@@ -31,10 +33,10 @@ This file defines additional components for the component-based messaging system
 
 ## Main Function
 
-The file includes a `main()` function that:
+The file `main.rt` is converted to a Javascript `main()` function that:
 1. Initializes the system from a string configuration
 2. Installs all the worker components into the component registry
 3. Starts execution with the "main" container
 4. Logs the beginning and end of execution
 
-This file extends the component library with specialized workers focused on counting, state management, and signal processing within the reactive message-passing architecture.
+These files extend the component library with specialized workers focused on counting, state management, and signal processing within the reactive message-passing architecture.

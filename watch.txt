@@ -12,5 +12,5 @@ main.rt
 0d.rt
 stock.rt
 zd/kernel0d.py
-larson-html.drawio
+code-generator.drawio
 scanner.drawio
