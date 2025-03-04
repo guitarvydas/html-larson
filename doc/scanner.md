@@ -1,4 +1,8 @@
-# Summary of scanner.choreographers.json
+# Summary of scanner.drawio
+
+![layer 1](./scanner-layer1.png)
+
+![layer 2](./scanner-layer2.png)
 
 This file defines the component configuration for a "scanner" application using the message-passing system. It contains JSON that defines two main containers:
 
@@ -7,6 +11,7 @@ This file defines the component configuration for a "scanner" application using 
    - The flow starts with a message sent to the Divider
    - Divider sends messages to Larson on the "tick" port
    - Larson's output is routed to the trash component
+	 - the output from Larson is due to historical bootstrapping considerations and is no longer needed, sending it to trash prevents runtime error messages
 
 2. **Larson Container (Choreographer)**
    - Named after the "Larson Scanner" (like the sweeping light bar in Knight Rider)
@@ -26,4 +31,4 @@ This file defines the component configuration for a "scanner" application using 
      5. When reaching 0 or 9, Reverser changes the count direction
      6. Reset signals clear previous positions
 
-This JSON essentially defines a circuit diagram for a Larson Scanner effect where a light pattern moves back and forth across a row of indicators, creating the familiar "sweeping" visual effect.
+This drawing `scanner.drawio` is converted to JSON by the code generator. It defines a (layered) circuit diagram for a Larson Scanner effect where a light pattern moves back and forth across a row of indicators, creating the familiar "sweeping" visual effect.
