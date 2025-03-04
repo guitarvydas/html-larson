@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <title>Code Generator for Larson Scanner Project</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Code Generator for Larson Scanner Project</h1>
+            <div class="controls">
+                <div class="status-indicator">
+                    <span id="connection-status">Disconnected</span>
+                </div>
+                <button id="rebuild-btn">Run Rebuild</button>
+            </div>
+        </div>
+        
+        <div class="content-area">
+            <div class="row">
+                <div class="kvbox">
+                    <input type="text" class="tagbox" value="Javascript">
+                    <textarea id="Javascript" class="textarea" readonly></textarea>
+                </div>
+                <div class="kvbox">
+                    <input type="text" class="tagbox" value="Python">
+                    <textarea id="Python" class="textarea" readonly></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="kvbox">
+                    <input type="text" class="tagbox" value="CommonLisp">
+                    <textarea id="CommonLisp" class="textarea" readonly></textarea>
+                </div>
+                <div class="kvbox">
+                    <input type="text" class="tagbox" value="WASM">
+                    <textarea id="WASM" class="textarea" readonly></textarea>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="kvbox">
+                    <input type="text" class="tagbox" value="✗">
+                    <textarea id="✗" class="textarea" readonly></textarea>
+                </div>
+                <div class="kvbox">
+                    <input type="text" class="tagbox" value="Info">
+                    <div id="Info" class="textarea info-area"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div class="file-status">
+                Watching: <span id="file-path">larson-html.drawio</span>
+                <span id="file-status"></span>
+            </div>
+        </div>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+</html>

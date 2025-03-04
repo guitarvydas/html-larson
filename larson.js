@@ -489,6 +489,424 @@ const lnet =
   '        }' +
   '      }' +
   '    ]' +
+  '  },' +
+  '  {' +
+  '    "name": "LED Sequencer",' +
+  '    "children": [' +
+  '      {' +
+  '        "name": "LEDs Raw",' +
+  '        "id": 4' +
+  '      },' +
+  '      {' +
+  '        "name": "1then2",' +
+  '        "id": 9' +
+  '      },' +
+  '      {' +
+  '        "name": "trash",' +
+  '        "id": 14' +
+  '      }' +
+  '    ],' +
+  '    "connections": [' +
+  '      {' +
+  '        "dir": 0,' +
+  '        "source_port": "count",' +
+  '        "target_port": "1",' +
+  '        "target": {' +
+  '          "name": "1then2",' +
+  '          "id": 9' +
+  '        }' +
+  '      },' +
+  '      {' +
+  '        "dir": 0,' +
+  '        "source_port": "count",' +
+  '        "target_port": "2",' +
+  '        "target": {' +
+  '          "name": "1then2",' +
+  '          "id": 9' +
+  '        }' +
+  '      },' +
+  '      {' +
+  '        "dir": 1,' +
+  '        "source_port": "count",' +
+  '        "target_port": "1",' +
+  '        "source": {' +
+  '          "name": "1then2",' +
+  '          "id": 9' +
+  '        },' +
+  '        "target": {' +
+  '          "name": "1then2",' +
+  '          "id": 9' +
+  '        }' +
+  '      },' +
+  '      {' +
+  '        "dir": 1,' +
+  '        "source_port": "count",' +
+  '        "target_port": "2",' +
+  '        "source": {' +
+  '          "name": "1then2",' +
+  '          "id": 9' +
+  '        },' +
+  '        "target": {' +
+  '          "name": "1then2",' +
+  '          "id": 9' +
+  '        }' +
+  '      },' +
+  '      {' +
+  '        "dir": 1,' +
+  '        "source_port": "1",' +
+  '        "target_port": "Disable",' +
+  '        "source": {' +
+  '          "name": "1then2",' +
+  '          "id": 9' +
+  '        },' +
+  '        "target": {' +
+  '          "name": "LEDs Raw",' +
+  '          "id": 4' +
+  '        }' +
+  '      },' +
+  '      {' +
+  '        "dir": 1,' +
+  '        "source_port": "2",' +
+  '        "target_port": "N",' +
+  '        "source": {' +
+  '          "name": "1then2",' +
+  '          "id": 9' +
+  '        },' +
+  '        "target": {' +
+  '          "name": "LEDs Raw",' +
+  '          "id": 4' +
+  '        }' +
+  '      },' +
+  '      {' +
+  '        "dir": 1,' +
+  '        "source_port": "Done",' +
+  '        "target_port": "",' +
+  '        "source": {' +
+  '          "name": "LEDs Raw",' +
+  '          "id": 4' +
+  '        },' +
+  '        "target": {' +
+  '          "name": "trash",' +
+  '          "id": 14' +
+  '        }' +
+  '      },' +
+  '      {' +
+  '        "dir": 2,' +
+  '        "source_port": "MinMax",' +
+  '        "target_port": "rev",' +
+  '        "source": {' +
+  '          "name": "LEDs Raw",' +
+  '          "id": 4' +
+  '        }' +
+  '      }' +
+  '    ]' +
+  '  },' +
+  '  {' +
+  '    "name": "LEDs Raw",' +
+  '    "children": [' +
+  '      {' +
+  '        "name": "@",' +
+  '        "id": 6' +
+  '      },' +
+  '      {' +
+  '        "name": "@",' +
+  '        "id": 9' +
+  '      },' +
+  '      {' +
+  '        "name": "@",' +
+  '        "id": 12' +
+  '      },' +
+  '      {' +
+  '        "name": "@",' +
+  '        "id": 15' +
+  '      },' +
+  '      {' +
+  '        "name": "@",' +
+  '        "id": 18' +
+  '      },' +
+  '      {' +
+  '        "name": "@",' +
+  '        "id": 21' +
+  '      },' +
+  '      {' +
+  '        "name": "@",' +
+  '        "id": 24' +
+  '      },' +
+  '      {' +
+  '        "name": "@",' +
+  '        "id": 27' +
+  '      },' +
+  '      {' +
+  '        "name": "@",' +
+  '        "id": 30' +
+  '      },' +
+  '      {' +
+  '        "name": "@",' +
+  '        "id": 33' +
+  '      },' +
+  '      {' +
+  '        "name": "Decode",' +
+  '        "id": 36' +
+  '      }' +
+  '    ],' +
+  '    "connections": [' +
+  '      {' +
+  '        "dir": 0,' +
+  '        "source_port": "Disable",' +
+  '        "target_port": "reset",' +
+  '        "target": {' +
+  '          "name": "@",' +
+  '          "id": 21' +
+  '        }' +
+  '      },' +
+  '      {' +
+  '        "dir": 0,' +
+  '        "source_port": "Disable",' +
+  '        "target_port": "reset",' +
+  '        "target": {' +
+  '          "name": "@",' +
+  '          "id": 27' +
+  '        }' +
+  '      },' +
+  '      {' +
+  '        "dir": 0,' +
+  '        "source_port": "Disable",' +
+  '        "target_port": "reset",' +
+  '        "target": {' +
+  '          "name": "@",' +
+  '          "id": 30' +
+  '        }' +
+  '      },' +
+  '      {' +
+  '        "dir": 0,' +
+  '        "source_port": "Disable",' +
+  '        "target_port": "reset",' +
+  '        "target": {' +
+  '          "name": "@",' +
+  '          "id": 33' +
+  '        }' +
+  '      },' +
+  '      {' +
+  '        "dir": 0,' +
+  '        "source_port": "Disable",' +
+  '        "target_port": "reset",' +
+  '        "target": {' +
+  '          "name": "@",' +
+  '          "id": 18' +
+  '        }' +
+  '      },' +
+  '      {' +
+  '        "dir": 0,' +
+  '        "source_port": "Disable",' +
+  '        "target_port": "reset",' +
+  '        "target": {' +
+  '          "name": "@",' +
+  '          "id": 12' +
+  '        }' +
+  '      },' +
+  '      {' +
+  '        "dir": 0,' +
+  '        "source_port": "Disable",' +
+  '        "target_port": "reset",' +
+  '        "target": {' +
+  '          "name": "@",' +
+  '          "id": 9' +
+  '        }' +
+  '      },' +
+  '      {' +
+  '        "dir": 0,' +
+  '        "source_port": "Disable",' +
+  '        "target_port": "reset",' +
+  '        "target": {' +
+  '          "name": "@",' +
+  '          "id": 6' +
+  '        }' +
+  '      },' +
+  '      {' +
+  '        "dir": 0,' +
+  '        "source_port": "Disable",' +
+  '        "target_port": "reset",' +
+  '        "target": {' +
+  '          "name": "@",' +
+  '          "id": 24' +
+  '        }' +
+  '      },' +
+  '      {' +
+  '        "dir": 0,' +
+  '        "source_port": "Disable",' +
+  '        "target_port": "reset",' +
+  '        "target": {' +
+  '          "name": "@",' +
+  '          "id": 15' +
+  '        }' +
+  '      },' +
+  '      {' +
+  '        "dir": 0,' +
+  '        "source_port": "N",' +
+  '        "target_port": "N",' +
+  '        "target": {' +
+  '          "name": "Decode",' +
+  '          "id": 36' +
+  '        }' +
+  '      },' +
+  '      {' +
+  '        "dir": 1,' +
+  '        "source_port": "0",' +
+  '        "target_port": "",' +
+  '        "source": {' +
+  '          "name": "Decode",' +
+  '          "id": 36' +
+  '        },' +
+  '        "target": {' +
+  '          "name": "@",' +
+  '          "id": 21' +
+  '        }' +
+  '      },' +
+  '      {' +
+  '        "dir": 1,' +
+  '        "source_port": "1",' +
+  '        "target_port": "",' +
+  '        "source": {' +
+  '          "name": "Decode",' +
+  '          "id": 36' +
+  '        },' +
+  '        "target": {' +
+  '          "name": "@",' +
+  '          "id": 24' +
+  '        }' +
+  '      },' +
+  '      {' +
+  '        "dir": 1,' +
+  '        "source_port": "2",' +
+  '        "target_port": "",' +
+  '        "source": {' +
+  '          "name": "Decode",' +
+  '          "id": 36' +
+  '        },' +
+  '        "target": {' +
+  '          "name": "@",' +
+  '          "id": 27' +
+  '        }' +
+  '      },' +
+  '      {' +
+  '        "dir": 1,' +
+  '        "source_port": "3",' +
+  '        "target_port": "",' +
+  '        "source": {' +
+  '          "name": "Decode",' +
+  '          "id": 36' +
+  '        },' +
+  '        "target": {' +
+  '          "name": "@",' +
+  '          "id": 30' +
+  '        }' +
+  '      },' +
+  '      {' +
+  '        "dir": 1,' +
+  '        "source_port": "4",' +
+  '        "target_port": "",' +
+  '        "source": {' +
+  '          "name": "Decode",' +
+  '          "id": 36' +
+  '        },' +
+  '        "target": {' +
+  '          "name": "@",' +
+  '          "id": 33' +
+  '        }' +
+  '      },' +
+  '      {' +
+  '        "dir": 1,' +
+  '        "source_port": "5",' +
+  '        "target_port": "",' +
+  '        "source": {' +
+  '          "name": "Decode",' +
+  '          "id": 36' +
+  '        },' +
+  '        "target": {' +
+  '          "name": "@",' +
+  '          "id": 18' +
+  '        }' +
+  '      },' +
+  '      {' +
+  '        "dir": 1,' +
+  '        "source_port": "6",' +
+  '        "target_port": "",' +
+  '        "source": {' +
+  '          "name": "Decode",' +
+  '          "id": 36' +
+  '        },' +
+  '        "target": {' +
+  '          "name": "@",' +
+  '          "id": 15' +
+  '        }' +
+  '      },' +
+  '      {' +
+  '        "dir": 1,' +
+  '        "source_port": "7",' +
+  '        "target_port": "",' +
+  '        "source": {' +
+  '          "name": "Decode",' +
+  '          "id": 36' +
+  '        },' +
+  '        "target": {' +
+  '          "name": "@",' +
+  '          "id": 12' +
+  '        }' +
+  '      },' +
+  '      {' +
+  '        "dir": 1,' +
+  '        "source_port": "8",' +
+  '        "target_port": "",' +
+  '        "source": {' +
+  '          "name": "Decode",' +
+  '          "id": 36' +
+  '        },' +
+  '        "target": {' +
+  '          "name": "@",' +
+  '          "id": 9' +
+  '        }' +
+  '      },' +
+  '      {' +
+  '        "dir": 1,' +
+  '        "source_port": "9",' +
+  '        "target_port": "",' +
+  '        "source": {' +
+  '          "name": "Decode",' +
+  '          "id": 36' +
+  '        },' +
+  '        "target": {' +
+  '          "name": "@",' +
+  '          "id": 6' +
+  '        }' +
+  '      },' +
+  '      {' +
+  '        "dir": 2,' +
+  '        "source_port": "done",' +
+  '        "target_port": "Done",' +
+  '        "source": {' +
+  '          "name": "Decode",' +
+  '          "id": 36' +
+  '        }' +
+  '      },' +
+  '      {' +
+  '        "dir": 2,' +
+  '        "source_port": "9",' +
+  '        "target_port": "MinMac",' +
+  '        "source": {' +
+  '          "name": "Decode",' +
+  '          "id": 36' +
+  '        }' +
+  '      },' +
+  '      {' +
+  '        "dir": 2,' +
+  '        "source_port": "0",' +
+  '        "target_port": "MinMac",' +
+  '        "source": {' +
+  '          "name": "Decode",' +
+  '          "id": 36' +
+  '        }' +
+  '      }' +
+  '    ]' +
   '  }' +
   ']';
 

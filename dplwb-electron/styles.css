@@ -1,0 +1,204 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    padding: 20px;
+    background-color: #f5f5f5;
+    height: 100vh;
+    overflow: hidden; /* Prevent scrolling at body level */
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 40px);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    flex-shrink: 0; /* Prevent header from shrinking */
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+}
+
+#connection-status {
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#connection-status.connected {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+#connection-status.disconnected {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+#rebuild-btn {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#rebuild-btn:hover {
+    background-color: #0069d9;
+}
+
+#rebuild-btn:active {
+    background-color: #0062cc;
+}
+
+/* Content area that takes remaining space */
+.content-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0; /* Important for nested flex containers */
+    overflow: hidden; /* Prevent outside scrolling */
+}
+
+.row {
+    display: flex;
+    margin-bottom: 15px;
+    gap: 20px;
+    flex-shrink: 0; /* Don't shrink rows */
+}
+
+/* Make rows flex within the available space */
+.content-area .row {
+    flex: 1; /* Let rows take equal space */
+    min-height: 0; /* Important for flex children */
+}
+
+/* Make bottom row a specific size */
+.content-area .row:last-child {
+    flex: 0 0 180px; /* Fixed height for bottom row */
+}
+
+/* Make each kvbox exactly 50% width in the bottom row */
+.row:nth-last-child(1) .kvbox {
+    flex: 0 0 calc(50% - 10px); /* Exactly 50% width minus half the gap */
+    width: calc(50% - 10px);
+}
+
+.tagbox {
+    margin-bottom: 5px;
+    padding: 8px;
+    font-family: monospace;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-weight: bold;
+    flex-shrink: 0; /* Don't shrink the tagbox */
+}
+
+.kvbox {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    min-height: 0; /* Important for flex children */
+}
+
+.textarea {
+    width: 100%;
+    height: 100%; /* Take full height of parent */
+    font-family: monospace;
+    overflow: auto;
+    white-space: pre;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    resize: none; /* Disable manual resizing */
+}
+
+/* Make error text red */
+#✗ {
+    color: #dc3545;
+    font-weight: normal;
+}
+
+.info-area {
+    height: 100%; /* Take full height of parent */
+    overflow-y: auto;
+    background: white;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.ignored-tag {
+    color: red;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.footer {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+    flex-shrink: 0; /* Don't shrink the footer */
+}
+
+.file-status {
+    font-size: 14px;
+    color: #666;
+}
+
+#file-status {
+    margin-left: 10px;
+}
+
+#file-status.changed {
+    color: #28a745;
+    font-weight: bold;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.animated {
+    animation: fadeIn 0.5s;
+}
