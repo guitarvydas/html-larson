@@ -15,8 +15,6 @@ All of the code, except for the (minimal) HTML file `leds.html` is generated fro
 # Documentation
 see doc/START-HERE.md
 
-# Browser App
-
 # Code Generation
 Most of the textual code is written in `.rt` files. 
 
@@ -39,6 +37,6 @@ RT (Recursive text) is a VHLL that compiles to several target languages at once 
 
 ## utilities
 
-$ ./zd/lu.py "message"
+`./zd/lu.py "message"`
 	- makes "message" appear in "Info" text area of dplwb.html as long as choreographer.py is running
 	

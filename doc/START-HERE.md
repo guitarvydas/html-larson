@@ -1,4 +1,4 @@
-The top-most summary is in larson.md. 
+The top-most summary is in `larson.md`. 
 
-Start there, then look at the individual summaries.
+Start there, then look at the individual summaries referred to in `larson.md`.
 

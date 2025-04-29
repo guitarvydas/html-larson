@@ -9,11 +9,11 @@ Several worker Parts needed by `scanner.drawio` are written in `.rt`. The code g
 - `monitor.rt`
 - `reverser.rt`
 
-[See the `rt` project for the full-blown version of the code generator].
+[See the `rt` project for the full-blown version of the code generator. It's not necessary to understand the code generator to understand this app. It is advised to understand this app first, before looking at the code generator].
 
 The whole system runs on top of a multi-tasking, message-passing kernel, written in `rt` consisting of `0d.rt` and `stock.rt`. The code generator converts the kernel into JS.
 
-All of the generated code is copied into the file `larson.js`. Currently, you must manually copy/paste the generated code (see ../README.md). It shouldn't be hard to get the code generator to write the generated code out to `larson.js`, but, I don't yet do this.
+All of the generated code is copied into the file `larson.js`. Currently, you must manually copy/paste the generated code (see ../README.md). [It shouldn't be hard to get the code generator to actually write the generated code out to `larson.js`, but, I don't yet do this, yet.]
 
 The drawing `scanner.drawio` is converted to JSON and is, also, included in the generated code.
 
@@ -41,7 +41,7 @@ The Larson scanner app creates a classic "Knight Rider" style back-and-forth lig
   - **Reverser**: Changes direction at endpoints (0 and 9)
   - **Decode**: Routes position values to correct LED outputs
   - **Monitor**: Interfaces with the display to turn LEDs on/off
-  - **Divider**: Controls timing of updates, slows down animation for human consumption by dividing-down the number of animation  ticks
+  - **Divider**: Controls timing of updates, slows down animation for human consumption by dividing-down the number of animation ticks
   - **Disable**: Resets the display on every tick from **Count**
 
 ### 4. Kernel Layer (0d.rt + stock.rt, converted to .js by code generator)
@@ -50,6 +50,7 @@ The Larson scanner app creates a classic "Knight Rider" style back-and-forth lig
   - Handles component lifecycle and message processing
 - **stock.rt**: Standard library of utility components
   - Provides reusable components like probes and data handlers
+- currently, the list of files to be compiled includes `0d.rt` and `stock.rt` - this slows the compiler down and the filenames can be removed once the design settles down and bootstrapping ends
 
 ## How It Works
 
