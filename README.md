@@ -12,6 +12,8 @@ The main thrust of this example is to show how to generate a browser app using d
 
 All of the code, except for the (minimal) HTML file `leds.html` is generated from diagrams and/or from textual code written in a Very High Level language (working name `.rt` for "recursive text"). The code generator is included in this project.
 
+This is a small experiment along the lines of a 1D Pong. It feeds off of a timer fed into it from the browser (divided down to make it slow enough for human eyes) and demonstrates how to use a feedback loop to change the direction of the flashing light (or ball in Pong).
+
 # Documentation
 see doc/START-HERE.md
 
